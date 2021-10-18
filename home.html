@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap" rel="stylesheet">
-    <title>Worlds News </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap"
+      rel="stylesheet"
+    />
+    <title>Worlds News</title>
     <style>
-
-        #stories{
-            font-family: 'News Cycle', sans-serif;
-        }
-        #stories>div{
-            display: flex;
-            
-        }
-        #stories > div > div{
-            cursor: pointer;
-            margin: 50px auto;
-            width: 400px;
-            /* height: 200px; */
-        }
-        #stories >div > div >img{
-            width: 100%;
-        } 
-        h1{
-            font-family: 'News Cycle', sans-serif;
-            margin-bottom: 50px;
-            font-size: 50px;
-            text-align: center;
-            text-decoration: underline;
-        }
+      body {
+        background-color: rgb(68, 216, 253);
+      }
+      #stories {
+        font-family: "News Cycle", sans-serif;
+      }
+      #stories > div {
+        display: flex;
+    }
+    #stories > div > div {
+        padding: 20px;
+        background-color: rgb(26, 177, 197);
+        cursor: pointer;
+        margin: 50px auto;
+        width: 400px;
+        /* height: 200px; */
+      }
+      #stories > div > div > img {
+        width: 100%;
+        height: 100%;
+      }
+      h1 {
+        font-family: "News Cycle", sans-serif;
+        margin-bottom: 50px;
+        font-size: 50px;
+        text-align: center;
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>News Top Headline</h1>
-    <div id="stories">
-    </div>
-</body>
+    <div id="stories"></div>
+  </body>
 </html>
-<script src="js/home.js">
-    
-</script>
+<script src="js/home.js"></script>

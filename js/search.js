@@ -3,7 +3,7 @@
 
     let value = document.getElementById("search").value;
 
-    let res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=${value}&apiKey=2bbdb0658c3246f198d118f464abdacf`);
+    let res = await fetch(`https://newsapi.org/v2/everything?q=${value}&from=2021-10-18&sortBy=popularity&apiKey=2bbdb0658c3246f198d118f464abdacf`);
 
     let data = await res.json();
     // console.log('data:', data)
