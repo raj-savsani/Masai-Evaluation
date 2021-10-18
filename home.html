@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worlds News </title>
+</head>
+<body>
+    <div id="stories"></div>
+</body>
+</html>
+<script>
+    async function topStories(){
+        let res = await fetch("https://newsapi.org/v2/top-headlines?q=Apple&from=2021-10-18&sortBy=popularity&apiKey=2bbdb0658c3246f198d118f464abdacf");
+
+        data = await res.json();
+
+       
+        appendnews(data.articles);
+    }
+    topStories();
+
+    let parent = document.getElementById("stories");
+
+    function appendnews(a){
+
+        a.forEach((n)=> {
+            // console.log('n:', n)
+
+            let div = document.createElement("div");
+
+            let title = document.createElement("h2");
+
+            title.textContent = n.title;
+            // console.log('title:', title)
+
+            let author = document.createElement("h6");
+
+            author.textContent = n.author
+            // console.log('author:', author)
+
+            let 
+
+            
+        });
+
+    }
+</script>
