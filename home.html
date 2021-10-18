@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap" rel="stylesheet">
     <title>Worlds News </title>
     <style>
 
-        /* #stories{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            flex-basis: 400px;
-        } */
+        #stories{
+            font-family: 'News Cycle', sans-serif;
+        }
         #stories>div{
             display: flex;
 
         }
         #stories > div > div{
-            margin: 20px auto;
+            cursor: pointer;
+            margin: 50px auto;
             width: 400px;
             /* height: 200px; */
         }
@@ -36,7 +37,6 @@
         let res = await fetch("https://newsapi.org/v2/top-headlines?q=Apple&from=2021-10-18&sortBy=popularity&apiKey=2bbdb0658c3246f198d118f464abdacf");
 
         data = await res.json();
-
        
         appendnews(data.articles);
     }
@@ -49,8 +49,10 @@
         a.forEach((n)=> {
             // console.log('n:', n)
             let main_div = document.createElement("div");
+            // main_div.style.cursor = "pointer";
             main_div.addEventListener("click",()=>{
-                
+                location.href = "/news.html";
+
             })
 
             let div1 = document.createElement("div");
