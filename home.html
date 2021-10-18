@@ -34,7 +34,7 @@
 </html>
 <script>
     async function topStories(){
-        let res = await fetch("https://newsapi.org/v2/top-headlines?q=Apple&from=2021-10-18&sortBy=popularity&apiKey=2bbdb0658c3246f198d118f464abdacf");
+        let res = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=2bbdb0658c3246f198d118f464abdacf");
 
         data = await res.json();
        
@@ -52,7 +52,7 @@
             // main_div.style.cursor = "pointer";
             main_div.addEventListener("click",()=>{
                 location.href = "/news.html";
-
+                detailsnews(n);
             })
 
             let div1 = document.createElement("div");

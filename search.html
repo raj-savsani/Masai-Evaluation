@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search News</title>
+</head>
+<body>
+    <h1>Search News</h1>
+    <input id="search" type="text" >
+    <button onclick="Search()">Search</button>
+</body>
+</html>
+
+<script>
+
+   async function Search(){
+        let value = document.getElementById("search").value;
+
+        let res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=${value}&apiKey=2bbdb0658c3246f198d118f464abdacf`);
+
+        let data = await res.json();
+        console.log('data:', data)
+
+    }
+
+</script>
