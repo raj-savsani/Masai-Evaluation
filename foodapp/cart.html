@@ -1,123 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        nav{
-            margin:10px;
-            display: flex;
-            font-size:30px;
-        }
-        .home{
-            margin-right: 800px;
-        }
-        .two > a{
-            margin: auto 30px;
-        }
-        a{
-            text-decoration: none;
-            color: #000000;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        margin: 10px;
+        display: flex;
+        font-size: 30px;
+      }
+      .home {
+        margin-right: 800px;
+      }
+      .two > a {
+        margin: auto 30px;
+      }
+      a {
+        text-decoration: none;
+        color: #000000;
+      }
 
-        #cart{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .main-div {
-            margin-top:50px;
-            text-align: center;
-            width: 350px;
-            font-size:20px;
-        }
-        .main-div > img{
-            width: 100%;
-        }
-        .main-div > button{
-            font-size:20px;
-            background-color:chocolate ;
-        }
+      #cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-div {
+        margin-top: 50px;
+        text-align: center;
+        width: 350px;
+        font-size: 20px;
+      }
+      .main-div > img {
+        width: 100%;
+      }
+      .main-div > button {
+        font-size: 20px;
+        background-color: chocolate;
+      }
     </style>
-</head>
-<body>
-    <nav id="navbar">
-
-    </nav>
+  </head>
+  <body>
+    <nav id="navbar"></nav>
+    <h2 style="text-align: center">Welcome to cart</h2>
     <div id="cart"></div>
-</body>
+  </body>
 </html>
-<script type=module>
-    import { navbar } from "./components/navbar.js";
-    let nav = document.getElementById("navbar");
+<script type="module">
+  import { navbar } from "./components/navbar.js";
+  let nav = document.getElementById("navbar");
 
-    nav.innerHTML = navbar();
+  nav.innerHTML = navbar();
 
-    let crt = JSON.parse(localStorage.getItem("cart"));
-    let price = JSON.parse(localStorage.getItem("price"));
-    // console.log('price:', price)
+  let crt = JSON.parse(localStorage.getItem("cart"));
+  let price = JSON.parse(localStorage.getItem("price"));
+  // console.log('price:', price)
 
-    let parent = document.getElementById("cart")
-    function ct(crt,price) {
+  let parent = document.getElementById("cart");
+  function ct(crt, price) {
+    parent.innerHTML = null;
+    crt.forEach((el) => {
+      let main_div = document.createElement("div");
+      main_div.setAttribute("class", "main-div");
 
-        parent.innerHTML = null;
-        crt.forEach((el)=>{
-            let main_div = document.createElement('div');
-            main_div.setAttribute('class','main-div');
+      let image = document.createElement("img");
+      image.src = el.strMealThumb;
 
-            let image = document.createElement('img');
-            image.src = el.strMealThumb;
+      let name = document.createElement("h3");
+      name.textContent = el.strMeal;
 
-            let name = document.createElement('h3');
-            name.textContent = el.strMeal;
+      let area = document.createElement("p");
+      area.textContent = el.strArea;
 
-            let area = document.createElement('p');
-            area.textContent = el.strArea;
+      let category = document.createElement("p");
+      category.textContent = el.strCategory;
 
-            let category = document.createElement('p');
-            category.textContent = el.strCategory;
-            
-            
-            let pri = document.createElement('h4');
-            pri.textContent = "Price: " + price;
-            let addtocart_btn = document.createElement('button');
-            addtocart_btn.textContent = "checkout";
+      let pri = document.createElement("h4");
+      pri.textContent = "Price: " + price;
+      let addtocart_btn = document.createElement("button");
+      addtocart_btn.textContent = "checkout";
 
-            addtocart_btn.onclick = function() {
-                order();
-            }
+      addtocart_btn.onclick = function () {
+        order();
+      };
 
-            main_div.append(image,name,area,category,pri,addtocart_btn);
-            parent.append(main_div);
-        })
-    }
-    ct(crt,price)
+      main_div.append(image, name, area, category, pri, addtocart_btn);
+      parent.append(main_div);
+    });
+  }
+  ct(crt, price);
 
-    function order(){
-        alert("Your order is accepted");
-        
-        setTimeout(() => {
-            alert("Your order is being cooked");
-        }, 3000);
+  function order() {
+    alert("Your order is accepted");
 
-        setTimeout(() => {
-            alert("Your order is ready");
-        }, 8000);
+    setTimeout(() => {
+      alert("Your order is being cooked");
+    }, 3000);
 
-        setTimeout(() => {
-            alert("Order out for delivery");
-        }, 10000);
+    setTimeout(() => {
+      alert("Your order is ready");
+    }, 8000);
 
-        setTimeout(() => {
-            alert("Order Delivered");
-        }, 12000);
+    setTimeout(() => {
+      alert("Order out for delivery");
+    }, 10000);
 
-        parent.innerHTML = null;
-    }
+    setTimeout(() => {
+      alert("Order Delivered");
+    }, 12000);
+
+    parent.innerHTML = null;
+  }
 </script>

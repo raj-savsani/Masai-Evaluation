@@ -98,15 +98,16 @@
 
             addtocart_btn.onclick = function() {
                 addCart(d,p);
+                window.location.href = "cart.html";
             }
-
+            
             main_div.append(image,name,area,category,price,addtocart_btn);
             menu.append(main_div);
         })
     }
-
+    
     function addCart(d,p) {
-
+        
         localStorage.setItem("cart",JSON.stringify(d));
         localStorage.setItem("price",JSON.stringify(p));
         
