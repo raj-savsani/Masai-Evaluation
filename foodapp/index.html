@@ -14,6 +14,7 @@
             margin:10px;
             display: flex;
             font-size:30px;
+            border-bottom: 3px solid #000011;
         }
         .home{
             margin-right: 800px;
@@ -24,6 +25,24 @@
         a{
             text-decoration: none;
             color: #000000;
+        }
+        #menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-div {
+            margin-top:50px;
+            text-align: center;
+            width: 350px;
+            font-size:20px;
+        }
+        .main-div > img{
+            width: 100%;
+        }
+        .main-div > button{
+            font-size:20px;
+            background-color:chocolate ;
         }
     </style>
 </head>
@@ -55,34 +74,43 @@
         menu.innerHTML = null;
         // console.log('d:', d)
 
-        d.forEach(({strMealThumb},{strArea},{strCategory},{strMeal},)=>{
-        // console.log('strMealThumb:', strMealThumb);
+        d.forEach((el)=>{
             let main_div = document.createElement('div');
+            main_div.setAttribute('class','main-div');
 
             let image = document.createElement('img');
-            image.src = strMealThumb;
+            image.src = el.strMealThumb;
 
             let name = document.createElement('h3');
-            name.textContent = strMeal;
+            name.textContent = el.strMeal;
 
             let area = document.createElement('p');
-            area.textContent = strArea;
+            area.textContent = el.strArea;
 
             let category = document.createElement('p');
-            category.textContent = strCategory;
-
-            let price = document.createElement('')
-
+            category.textContent = el.strCategory;
+            
+            let  p = Math.floor(Math.random() * 300)+100;
+            let price = document.createElement('h4');
+            price.textContent = "Price: " + p ;
             let addtocart_btn = document.createElement('button');
+            addtocart_btn.textContent = "Order Now";
 
             addtocart_btn.onclick = function() {
-                addCart(d);
+                addCart(d,p);
             }
+
+            main_div.append(image,name,area,category,price,addtocart_btn);
+            menu.append(main_div);
         })
     }
 
-    function addCart(d) {
+    function addCart(d,p) {
 
-        console.log(d);
+        localStorage.setItem("cart",JSON.stringify(d));
+        localStorage.setItem("price",JSON.stringify(p));
+        let crt = JSON.parse(localStorage.getItem("cart"));
+        let price = JSON.parse(localStorage.getItem("price"));
+        
     }
 </script>
