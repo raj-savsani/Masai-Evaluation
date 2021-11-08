@@ -29,12 +29,60 @@
 </head>
 <body>
     <nav id="navbar">
-        
+
     </nav>
+    <div id="menu">
+
+    </div>
 </body>
 </html>
 <script type=module>
-    import { navbar } from "./components/";
+    import { navbar } from "./components/navbar.js";
     let nav = document.getElementById("navbar");
 
+    nav.innerHTML = navbar();
+    
+    async function food() {
+        let res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+        let data = await res.json();
+        getfood(data.meals);
+    }
+
+    food();
+    let menu = document.getElementById('menu')
+    
+    function getfood(d) {
+        menu.innerHTML = null;
+        // console.log('d:', d)
+
+        d.forEach(({strMealThumb},{strArea},{strCategory},{strMeal},)=>{
+        // console.log('strMealThumb:', strMealThumb);
+            let main_div = document.createElement('div');
+
+            let image = document.createElement('img');
+            image.src = strMealThumb;
+
+            let name = document.createElement('h3');
+            name.textContent = strMeal;
+
+            let area = document.createElement('p');
+            area.textContent = strArea;
+
+            let category = document.createElement('p');
+            category.textContent = strCategory;
+
+            let price = document.createElement('')
+
+            let addtocart_btn = document.createElement('button');
+
+            addtocart_btn.onclick = function() {
+                addCart(d);
+            }
+        })
+    }
+
+    function addCart(d) {
+
+        console.log(d);
+    }
 </script>
