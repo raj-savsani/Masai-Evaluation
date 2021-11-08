@@ -1,43 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        nav{
-            margin:10px;
-            display: flex;
-            font-size:30px;
-        }
-        .home{
-            margin-right: 800px;
-        }
-        .two > a{
-            margin: auto 30px;
-        }
-        a{
-            text-decoration: none;
-            color: #000000;
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/login.css" />
+  </head>
+  <body>
     <nav id="navbar">
-
+        
     </nav>
-</body>
+
+    <div>
+      <h1>Login</h1>
+      <form onsubmit="login(event)" id="login-form" action="">
+        <input id="user" type="text" placeholder="Set UserName" required />
+        <input id="pass" type="password" placeholder="Set Password" required />
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
 </html>
+
 <script type="module">
-import { navbar } from "./components/navbar.js";
-    let nav = document.getElementById("navbar");
+  import { navbar } from "./components/navbar.js";
+  let nav = document.getElementById("navbar");
 
-    nav.innerHTML = navbar();
+  nav.innerHTML = navbar();
 
-    
+  function login(e) {
+    e.preventDefault();
+
+    let form = document.getElementById("login-form");
+
+    let user_data = {
+      username: form.user.value,
+      password: form.pass.value,
+    };
+
+    let data_to_send = JSON.stringify(user_data);
+    console.log("data_to_send:", data_to_send);
+
+    fetch("https://masai-api-mocker.herokuapp.com/auth/login", {
+      method: "POST",
+      body: data_to_send,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        fetchmyData(user_data.username, res.token);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function fetchmyData(username, token) {
+    fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`, {
+      headers: {
+        "Content-Type": "application/json",
+
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 </script>
