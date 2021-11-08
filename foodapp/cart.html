@@ -25,12 +25,28 @@
             text-decoration: none;
             color: #000000;
         }
+
+        #cart{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-div {
+            margin-top:50px;
+            text-align: center;
+            width: 350px;
+            font-size:20px;
+        }
+        .main-div > img{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <nav id="navbar">
 
     </nav>
+    <div id="cart"></div>
 </body>
 </html>
 <script type=module>
@@ -38,4 +54,44 @@
     let nav = document.getElementById("navbar");
 
     nav.innerHTML = navbar();
+
+    let crt = JSON.parse(localStorage.getItem("cart"));
+    let price = JSON.parse(localStorage.getItem("price"));
+    // console.log('price:', price)
+
+    let parent = document.getElementById("cart")
+    function ct(crt,price) {
+
+        parent.innerHTML = null;
+        crt.forEach((el)=>{
+            let main_div = document.createElement('div');
+            main_div.setAttribute('class','main-div');
+
+            let image = document.createElement('img');
+            image.src = el.strMealThumb;
+
+            let name = document.createElement('h3');
+            name.textContent = el.strMeal;
+
+            let area = document.createElement('p');
+            area.textContent = el.strArea;
+
+            let category = document.createElement('p');
+            category.textContent = el.strCategory;
+            
+            
+            let pri = document.createElement('h4');
+            pri.textContent = "Price: " + price;
+            let addtocart_btn = document.createElement('button');
+            addtocart_btn.textContent = "checkout";
+
+            addtocart_btn.onclick = function() {
+                addCart(d,p);
+            }
+
+            main_div.append(image,name,area,category,pri,addtocart_btn);
+            parent.append(main_div);
+        })
+    }
+    ct(crt,price)
 </script>
