@@ -40,6 +40,10 @@
         .main-div > img{
             width: 100%;
         }
+        .main-div > button{
+            font-size:20px;
+            background-color:chocolate ;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +90,7 @@
             addtocart_btn.textContent = "checkout";
 
             addtocart_btn.onclick = function() {
-                addCart(d,p);
+                order();
             }
 
             main_div.append(image,name,area,category,pri,addtocart_btn);
@@ -94,4 +98,26 @@
         })
     }
     ct(crt,price)
+
+    function order(){
+        alert("Your order is accepted");
+        
+        setTimeout(() => {
+            alert("Your order is being cooked");
+        }, 3000);
+
+        setTimeout(() => {
+            alert("Your order is ready");
+        }, 8000);
+
+        setTimeout(() => {
+            alert("Order out for delivery");
+        }, 10000);
+
+        setTimeout(() => {
+            alert("Order Delivered");
+        }, 12000);
+
+        parent.innerHTML = null;
+    }
 </script>
