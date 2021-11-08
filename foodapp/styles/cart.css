@@ -6,6 +6,7 @@
     margin: 10px;
     display: flex;
     font-size: 30px;
+    border-bottom: 3px solid #000011;
   }
   .home {
     margin-right: 800px;
