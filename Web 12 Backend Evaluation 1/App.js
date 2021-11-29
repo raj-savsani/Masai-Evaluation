@@ -123,23 +123,22 @@ app.post("/job", async (req, res) => {
 
 app.get("/job/workfromhome", async function (req, res) {
   try {
-    const job = await Job.find({"work_from_home":"Yes"})
-    .populate('company_id')
-    .populate('skill_id')
-    .populate('city_id');
+    const job = await Job.find({ work_from_home: "Yes" })
+      .populate("company_id")
+      .populate("skill_id")
+      .populate("city_id");
     res.status(201).send(job);
   } catch (e) {
     res.status(500).send({ message: e.message });
   }
 });
 
-
 app.get("/job/noticePeriod2Month", async function (req, res) {
   try {
-    const job = await Job.find({"notice_period":"2 month"})
-    .populate('company_id')
-    .populate('skill_id')
-    .populate('city_id')
+    const job = await Job.find({ notice_period: "2 month" })
+      .populate("company_id")
+      .populate("skill_id")
+      .populate("city_id");
     res.status(201).send(job);
   } catch (e) {
     res.status(500).send({ message: e.message });
@@ -148,23 +147,41 @@ app.get("/job/noticePeriod2Month", async function (req, res) {
 
 app.get("/job/ratingHighToLow", async function (req, res) {
   try {
-    const job = await Job.find({}).sort({rating: -1})
-    .populate('company_id')
-    .populate('skill_id')
-    .populate('city_id')
+    const job = await Job.find({})
+      .sort({ rating: -1 })
+      .populate("company_id")
+      .populate("skill_id")
+      .populate("city_id");
     res.status(201).send(job);
   } catch (e) {
     res.status(500).send({ message: e.message });
   }
 });
 
-
 app.get("/job/highVacancy", async function (req, res) {
   try {
-    const job = await Job.find({}).sort({vacancy: -1})
-    .populate('company_id')
-    .populate('skill_id')
-    .populate('city_id')
+    const job = await Job.find({})
+      .sort({ vacancy: -1 })
+      .populate("company_id")
+      .populate("skill_id")
+      .populate("city_id");
+    res.status(201).send(job);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+app.get("/job/city=:city_id/skill=:skill_id", async function (req, res) {
+  try {
+    const job = await Job.find({
+      $and: [
+        { city_id:  req.params.city_id },
+        { skill_id: req.params.skill_id },
+      ],
+    })
+      .populate("company_id")
+      .populate("skill_id")
+      .populate("city_id");
     res.status(201).send(job);
   } catch (e) {
     res.status(500).send({ message: e.message });
