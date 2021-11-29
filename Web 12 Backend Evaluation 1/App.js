@@ -85,7 +85,6 @@ app.post("/company", async (req, res) => {
   }
 });
 
-
 app.post("/skill", async (req, res) => {
   try {
     const skill = await Skill.create(req.body);
@@ -94,7 +93,6 @@ app.post("/skill", async (req, res) => {
     res.status(500).send({ message: e.message });
   }
 });
-
 
 app.post("/city", async (req, res) => {
   try {
@@ -108,6 +106,43 @@ app.post("/city", async (req, res) => {
 app.post("/job", async (req, res) => {
   try {
     const job = await Job.create(req.body);
+    res.status(201).send(job);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+app.get("/job/workfromhome", async function (req, res) {
+  try {
+    const job = await Job.find({"work_from_home":"Yes"})
+    .populate('company_id')
+    .populate('skill_id')
+    .populate('city_id');
+    res.status(201).send(job);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+
+app.get("/job/noticePeriod2Month", async function (req, res) {
+  try {
+    const job = await Job.find({"notice_period":"2 month"})
+    .populate('company_id')
+    .populate('skill_id')
+    .populate('city_id')
+    res.status(201).send(job);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+app.get("/job/ratingHighToLow", async function (req, res) {
+  try {
+    const job = await Job.find({},{rating : 1})
+    .populate('company_id')
+    .populate('skill_id')
+    .populate('city_id')
     res.status(201).send(job);
   } catch (e) {
     res.status(500).send({ message: e.message });
