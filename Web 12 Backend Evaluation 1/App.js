@@ -85,6 +85,15 @@ app.post("/company", async (req, res) => {
   }
 });
 
+app.get("/company/:id", async (req, res) => {
+  try {
+    const company = await Company.findById(req.params.id);
+    res.status(201).send(company);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
 app.post("/skill", async (req, res) => {
   try {
     const skill = await Skill.create(req.body);
@@ -139,7 +148,20 @@ app.get("/job/noticePeriod2Month", async function (req, res) {
 
 app.get("/job/ratingHighToLow", async function (req, res) {
   try {
-    const job = await Job.find({},{rating : 1})
+    const job = await Job.find({}).sort({rating: -1})
+    .populate('company_id')
+    .populate('skill_id')
+    .populate('city_id')
+    res.status(201).send(job);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+
+app.get("/job/highVacancy", async function (req, res) {
+  try {
+    const job = await Job.find({}).sort({vacancy: -1})
     .populate('company_id')
     .populate('skill_id')
     .populate('city_id')
