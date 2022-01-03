@@ -6,27 +6,37 @@ function Right({ recipes, setRecipes, setShow }) {
     setShow(item);
   };
   return (
-    <RightDiv>
+    <MainDiv>
       <h1>List Of Recipe</h1>
-      {recipes.map((item) => (
-        <div key={item.id} onClick={() => showData(item)}>
-          <h2>Title: {item.title}</h2>
-          <h3>Cooking time: {item.time}</h3>
-        </div>
-      ))}
-    </RightDiv>
+      <RightDiv>
+        {recipes.map((item) => (
+          <ItemDiv key={item.id} onClick={() => showData(item)}>
+            <h2>Title: {item.title}</h2>
+            <h3>Cooking time: {item.time}</h3>
+            <hr />
+          </ItemDiv>
+        ))}
+      </RightDiv>
+    </MainDiv>
   );
 }
+const MainDiv = styled.div`
+  background-color: #406882;
+`;
 
 const RightDiv = styled.div`
-  margin-top: 100px;
-  width: 600px;
-  height: 200px;
-  overflow: scroll;
+  background-color: #6998ab;
+  width: 800px;
+  height: 300px;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
+`;
+
+const ItemDiv = styled.div`
+  cursor: pointer;
 `;
 
 export default Right;

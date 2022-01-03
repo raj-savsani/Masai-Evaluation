@@ -36,7 +36,6 @@ function Left({ recipes, setRecipes }) {
       body: JSON.stringify(payload),
     });
     toGetRecipes();
-
     // setRecipes([...recipes,])
   };
 

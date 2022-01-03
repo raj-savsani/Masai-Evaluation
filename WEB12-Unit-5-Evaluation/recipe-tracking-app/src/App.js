@@ -13,17 +13,25 @@ function App() {
   const [recipes, setRecipes] = React.useState([]);
   return (
     <div className="App">
-      <MainDiv>
+      <UpperDiv>
         <Left recipes={recipes} setRecipes={setRecipes} />
         <Right recipes={recipes} setRecipes={setRecipes} setShow={setShow} />
-        {/* <Below show={show} /> */}
-      </MainDiv>
+      </UpperDiv>
+      <BelowDiv>
+        <Below show={show} />
+      </BelowDiv>
     </div>
   );
 }
 
-const MainDiv = styled.div`
+const UpperDiv = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+const BelowDiv = styled.div`
+  background-color: #557c55;
+  margin: 50px;
+`;
+
 export default App;

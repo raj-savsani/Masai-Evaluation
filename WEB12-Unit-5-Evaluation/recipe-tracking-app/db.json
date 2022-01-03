@@ -27,6 +27,13 @@
       "time": "15 min",
       "image_url": "https:\\/\\/www.themealdb.com\\/images\\/media\\/meals\\/ssxvup1511387476.jpg",
       "id": 4
+    },
+    {
+      "title": "Chinon Apple Tarts",
+      "ingredients": "Puff Pastry,Dark Brown Soft Sugar,Braeburn Apples,Red Wine Jelly,Creme Fraiche,Cardamom",
+      "time": "30 min",
+      "image_url": "https:\\/\\/www.themealdb.com\\/images\\/media\\/meals\\/qtqwwu1511792650.jpg",
+      "id": 5
     }
   ]
 }
