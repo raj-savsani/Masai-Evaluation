@@ -1,5 +1,11 @@
 {
-    "recipes":[
-        
-    ]
+  "recipes": [
+    {
+      "title": "Nutrient-Packed Colorful Super Salad",
+      "ingredients": "3 tablespoons wole grain mustard, 2 tablespoons organic maple syrup, 1 tablespoon fresh ginger, grated 4 cloves garlic, grated 1 tablespoon sesame seed, toasted",
+      "time": "10 min",
+      "image_url": "https://i.pinimg.com/originals/aa/26/7c/aa267cc387537d4eb16b5a0bc85f60b2.jpg",
+      "id": 1
+    }
+  ]
 }
