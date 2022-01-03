@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 function Below({ show }) {
-//   console.log("show:", show.title);
+  //   console.log("show:", show.title);
   return (
     <MainDiv>
       <ImgDiv>
@@ -10,7 +10,7 @@ function Below({ show }) {
 
       <DataDiv>
         <h1>{show.title}</h1>
-        <h3>{show.ingredients}</h3>
+        <h3>Ingredients: {show.ingredients}</h3>
         <h3>{show.time}</h3>
       </DataDiv>
     </MainDiv>

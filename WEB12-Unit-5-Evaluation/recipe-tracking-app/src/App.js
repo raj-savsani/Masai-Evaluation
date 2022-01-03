@@ -28,7 +28,7 @@ const UpperDiv = styled.div`
 `;
 
 const BelowDiv = styled.div`
-  background-color: #557c55;
+  background-color: #6998ab;
   margin: 50px;
 `;
 
