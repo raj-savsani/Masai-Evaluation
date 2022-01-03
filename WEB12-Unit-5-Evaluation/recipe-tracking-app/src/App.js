@@ -17,9 +17,7 @@ function App() {
         <Left recipes={recipes} setRecipes={setRecipes} />
         <Right recipes={recipes} setRecipes={setRecipes} setShow={setShow} />
       </UpperDiv>
-      <BelowDiv>
-        <Below show={show} />
-      </BelowDiv>
+      <BelowDiv>{show ? <Below show={show} /> : null}</BelowDiv>
     </div>
   );
 }

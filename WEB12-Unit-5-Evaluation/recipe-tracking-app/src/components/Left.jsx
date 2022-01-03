@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 function Left({ recipes, setRecipes }) {
-  console.log("recipes:", recipes);
+//   console.log("recipes:", recipes);
   const [text, setText] = React.useState();
   const handleChange = (e) => {
     const { name, value } = e.target;

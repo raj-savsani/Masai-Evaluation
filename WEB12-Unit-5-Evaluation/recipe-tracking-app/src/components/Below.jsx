@@ -1,35 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 function Below({ show }) {
-  console.log("show:", show.title);
+//   console.log("show:", show.title);
   return (
-    <>
-      <h2> More Details </h2>
-      <MainDiv>
-        <ImgDiv>
-          <img src={show.image_url} alt="food"></img>
-        </ImgDiv>
+    <MainDiv>
+      <ImgDiv>
+        <img src={show.image_url} alt="food"></img>
+      </ImgDiv>
 
-        <DataDiv>
-          <h1>{show.title}</h1>
-          <h3>{show.ingredients}</h3>
-          <h3>{show.time}</h3>
-        </DataDiv>
-      </MainDiv>
-    </>
+      <DataDiv>
+        <h1>{show.title}</h1>
+        <h3>{show.ingredients}</h3>
+        <h3>{show.time}</h3>
+      </DataDiv>
+    </MainDiv>
   );
 }
 
 const MainDiv = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  text-align: left;
 `;
 const ImgDiv = styled.div`
   display: inline-block;
-  width: 400px;
+  width: 500px;
   img {
-    width: 100%;
+    width: 90%;
   }
 `;
 const DataDiv = styled.div`
