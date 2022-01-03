@@ -35,45 +35,57 @@ function Left({ recipes, setRecipes }) {
       },
       body: JSON.stringify(payload),
     });
+    toGetRecipes();
 
     // setRecipes([...recipes,])
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
+    <>
+      <Form onSubmit={handleSubmit}>
+        <h1>Add Recipe</h1>
+        <Input
           onChange={handleChange}
           name="title"
           type="text"
           placeholder="Enter title name"
         />
-        <input
+        <Input
           onChange={handleChange}
           name="ingredients"
           type="text"
           placeholder="Enter ingredients"
         />
-        <input
+        <Input
           onChange={handleChange}
           name="time"
           type="text"
           placeholder="Enter time to cook"
         />
-        <input
+        <Input
           onChange={handleChange}
           name="image_url"
           type="text"
           placeholder="Enter  image url"
         />
-        <input type="submit" />
-      </form>
-    </div>
+        <Input type="submit" />
+      </Form>
+    </>
   );
 }
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+`;
+
+const Input = styled.input`
+  margin: 5px;
+  font-size: 20px;
+`;
+
 export default Left;
-
-// const Form = styled.form`
-
-// `
