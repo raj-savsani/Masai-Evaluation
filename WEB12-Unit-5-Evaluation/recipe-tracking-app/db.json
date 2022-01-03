@@ -6,6 +6,27 @@
       "time": "10 min",
       "image_url": "https://i.pinimg.com/originals/aa/26/7c/aa267cc387537d4eb16b5a0bc85f60b2.jpg",
       "id": 1
+    },
+    {
+      "title": "Split Pea Soup",
+      "ingredients": "Ham,Peas,Onions,Onions,Bay leaves,Celery,",
+      "time": "20 min",
+      "image_url": "https:\\\\www.themealdb.com\\images\\media\\meals\\xxtsvx1511814083.jpg",
+      "id": 2
+    },
+    {
+      "title": "Split Pea Soup",
+      "ingredients": "Ham,Peas,Onions,Onions,Bay leaves,Celery,",
+      "time": "20 min",
+      "image_url": "https:\\/\\/www.themealdb.com\\/images\\/media\\/meals\\/xxtsvx1511814083.jpg",
+      "id": 3
+    },
+    {
+      "title": "Peach & Blueberry Grunt",
+      "ingredients": "Corn Flour,Orange,Caster Sugar,Peaches,Blueberries,Butter",
+      "time": "15 min",
+      "image_url": "https:\\/\\/www.themealdb.com\\/images\\/media\\/meals\\/ssxvup1511387476.jpg",
+      "id": 4
     }
   ]
 }
