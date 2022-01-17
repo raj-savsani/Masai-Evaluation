@@ -15,6 +15,7 @@ function Dashboard() {
         .then((res) => res.json())
         .then((data) => {
           setJobs(data);
+          getList();
         });
     } catch (e) {
       console.log(e);

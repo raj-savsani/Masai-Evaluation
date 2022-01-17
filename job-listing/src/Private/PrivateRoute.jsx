@@ -5,10 +5,10 @@ import { AuthContext } from "../Context/Auth";
 function PrivateRoute({ children }) {
   const { token } = useContext(AuthContext);
   if (!token) {
-    console.log("children:", children.type.name);
+    // console.log("children:", children.type.name);
     return <Navigate to="/login" />;
   }
-  
+
   return children;
 }
 export default PrivateRoute;
