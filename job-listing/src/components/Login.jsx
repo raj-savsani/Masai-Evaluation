@@ -1,10 +1,15 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../Context/Auth";
 
 function Login() {
   const [form, setForm] = useState({});
+
   const { handleToken } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const getToken = () => {
     try {
       fetch("https://reqres.in/api/login", {
@@ -15,17 +20,26 @@ function Login() {
         },
       })
         .then((res) => res.json())
-        .then(({ token }) => handleToken(token));
+        .then(({ token }) => {
+          handleToken(token);
+          if (token === "QpwL5tke4Pnpja7X4") {
+            navigate("/listjob");
+          } else {
+            navigate("/dashboard");
+          }
+        });
     } catch (e) {
       console.log(e);
     }
   };
+
   const handleChange = ({ target: { name, value } }) => {
     setForm({
       ...form,
       [name]: value,
     });
   };
+
   return (
     <div>
       <h1>Login</h1>
@@ -43,7 +57,13 @@ function Login() {
           onChange={handleChange}
         />
 
-        <button onClick={getToken} >Sign in</button>
+        <button
+          onClick={() => {
+            getToken();
+          }}
+        >
+          Sign in
+        </button>
       </Form>
     </div>
   );

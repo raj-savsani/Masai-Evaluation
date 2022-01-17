@@ -1,7 +1,7 @@
 import React from "react";
 
 function Home() {
-  return <div>Welcome to Masai Job Portal</div>;
+  return <h1>Welcome to Masai Job Portal</h1>;
 }
 
 export default Home;
