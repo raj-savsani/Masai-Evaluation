@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 function ListJob() {
   const [form, setForm] = useState({});
@@ -21,7 +22,7 @@ function ListJob() {
   return (
     <div>
       <h1>List Job</h1>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <Form onSubmit={(e) => e.preventDefault()}>
         <input
           name="company"
           type="text"
@@ -58,10 +59,35 @@ function ListJob() {
           placeholder="Enter Job Type"
           onChange={handleChange}
         />
-        <input onSubmit={handleSubmit} />
-      </form>
+        <button onClick={handleSubmit}>List Job</button>
+      </Form>
     </div>
   );
 }
 
 export default ListJob;
+
+const Form = styled.form`
+  width: 300px;
+  heigth: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  div {
+    margin-top: 50px;
+  }
+  input {
+    margin: 2%;
+    font-size: 25px;
+  }
+  button {
+    border-radius: 15px;
+    outline: none;
+    border-color: #557c55;
+    margin: 40px;
+    font-size: 25px;
+    background-color: #a3da8d;
+  }
+`;
