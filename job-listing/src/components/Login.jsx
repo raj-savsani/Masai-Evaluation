@@ -39,7 +39,7 @@ function Login() {
       [name]: value,
     });
   };
-
+  
   return (
     <div>
       <h1>Login</h1>
@@ -93,5 +93,8 @@ const Form = styled.form`
     margin: 40px;
     font-size: 25px;
     background-color: #a3da8d;
+  }
+  h2 {
+    color: green;
   }
 `;

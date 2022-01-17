@@ -8,9 +8,7 @@ function PrivateRoute({ children }) {
     console.log("children:", children.type.name);
     return <Navigate to="/login" />;
   }
-  if(token === "QpwL5tke4Pnpja7X4"){
-    return 
-  }
+  
   return children;
 }
 export default PrivateRoute;

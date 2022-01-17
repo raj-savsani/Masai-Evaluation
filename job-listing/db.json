@@ -1,5 +1,22 @@
 {
   "jobs": [
-    
+    {
+      "company": "Masai",
+      "title": "SED1",
+      "salary": "50000",
+      "description": "build LMS for learning management ",
+      "location": "Bangalore",
+      "job_type": "work from home",
+      "id": 1
+    },
+    {
+      "company": "Messo",
+      "title": "SED - 1",
+      "salary": "70000",
+      "location": "mumbai",
+      "description": "optimize user login",
+      "job_type": "work from home",
+      "id": 2
+    }
   ]
 }
